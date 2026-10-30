@@ -85,7 +85,7 @@ function ServicesPage() {
               key={service.to}
               className="grid items-center gap-10 md:grid-cols-2"
             >
-              <Reveal direction="left" className={i % 2 === 1 ? "md:order-2" : undefined}>
+              <Reveal direction="left" className={i % 2 === 1 ? "md:order-2" : ""}>
                 <Eyebrow>{service.eyebrow}</Eyebrow>
                 <h2 className="mt-3 font-display text-3xl text-foreground sm:text-4xl">
                   {service.title}

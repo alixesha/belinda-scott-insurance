@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as HealthInsuranceRouteImport } from './routes/health-insurance'
+import { Route as LifeInsuranceRouteImport } from './routes/life-insurance'
+import { Route as MedicareInsuranceRouteImport } from './routes/medicare-insurance'
+import { Route as ServicesRouteImport } from './routes/services'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HealthInsuranceRoute = HealthInsuranceRouteImport.update({
+  id: '/health-insurance',
+  path: '/health-insurance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LifeInsuranceRoute = LifeInsuranceRouteImport.update({
+  id: '/life-insurance',
+  path: '/life-insurance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedicareInsuranceRoute = MedicareInsuranceRouteImport.update({
+  id: '/medicare-insurance',
+  path: '/medicare-insurance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/health-insurance': typeof HealthInsuranceRoute
+  '/life-insurance': typeof LifeInsuranceRoute
+  '/medicare-insurance': typeof MedicareInsuranceRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/health-insurance': typeof HealthInsuranceRoute
+  '/life-insurance': typeof LifeInsuranceRoute
+  '/medicare-insurance': typeof MedicareInsuranceRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/health-insurance': typeof HealthInsuranceRoute
+  '/life-insurance': typeof LifeInsuranceRoute
+  '/medicare-insurance': typeof MedicareInsuranceRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/health-insurance'
+    | '/life-insurance'
+    | '/medicare-insurance'
+    | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/health-insurance'
+    | '/life-insurance'
+    | '/medicare-insurance'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/health-insurance'
+    | '/life-insurance'
+    | '/medicare-insurance'
+    | '/services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  HealthInsuranceRoute: typeof HealthInsuranceRoute
+  LifeInsuranceRoute: typeof LifeInsuranceRoute
+  MedicareInsuranceRoute: typeof MedicareInsuranceRoute
+  ServicesRoute: typeof ServicesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/health-insurance': {
+      id: '/health-insurance'
+      path: '/health-insurance'
+      fullPath: '/health-insurance'
+      preLoaderRoute: typeof HealthInsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/life-insurance': {
+      id: '/life-insurance'
+      path: '/life-insurance'
+      fullPath: '/life-insurance'
+      preLoaderRoute: typeof LifeInsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medicare-insurance': {
+      id: '/medicare-insurance'
+      path: '/medicare-insurance'
+      fullPath: '/medicare-insurance'
+      preLoaderRoute: typeof MedicareInsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  HealthInsuranceRoute: HealthInsuranceRoute,
+  LifeInsuranceRoute: LifeInsuranceRoute,
+  MedicareInsuranceRoute: MedicareInsuranceRoute,
+  ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
